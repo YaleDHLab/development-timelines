@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+      var request = new XMLHttpRequest();
+      request.open('GET', 'chart-data.json', true);
+
+      request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+          var data = JSON.parse(request.responseText);
+          initializeChart(data)
+        } else {}
+      };
+
+      request.onerror = function() {
+        console.warn('sorry, the data could not be loaded')
+      };
+
+      request.send();
+
+      var initializeChart = function(data) {
+        var paddingHeight = 40;
+        var rowHeight = data.length * 45;
+        var chartHeight = rowHeight + paddingHeight;
+
+        google.charts.load('current', {'packages':['timeline']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var container = document.getElementById('timeline');
+          var chart = new google.visualization.Timeline(container);
+          var dataTable = new google.visualization.DataTable();
+
+          dataTable.addColumn({ type: 'string', id: 'Term' });
+          dataTable.addColumn({ type: 'string', id: 'Task' });
+          dataTable.addColumn({ type: 'number', id: 'Start' });
+          dataTable.addColumn({ type: 'number', id: 'End' });
+          dataTable.addRows(data);
+
+          var options = {
+            timeline: {
+              showRowLabels: false,
+              groupByRowLabel: false,
+              colorByRowLabel: true
+            },
+            height: chartHeight,
+            hAxis: {
+              format: 'DAY-d',
+            },
+          };
+
+          chart.draw(dataTable, options);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id='timeline'></div>
+  </body>
+</html>

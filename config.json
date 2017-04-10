@@ -1,0 +1,5 @@
+{
+  "repo": "https://api.github.com/repos/YOUR_USERNAME/YOUR_REPOSITORY/issues",
+  "access_token": "GET THIS STRING FROM GITHUB.COM -> SETTINGS -> PERSONAL ACCESS TOKENS",
+  "use_saved_issue_json": "0"
+}
