@@ -6,7 +6,7 @@ This repo consists of a simple utility that pings the GitHub API, fetches all is
 
 ## Requirements
 
-Python 2
+Python 2.x or 3.x
 
 ## Usage
 
