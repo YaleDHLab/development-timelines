@@ -1,3 +1,7 @@
+# Note: This repository has been archived
+This project was developed under a previous phase of the Yale Digital Humanities Lab. Now a part of Yale Library’s Computational Methods and Data department, the Lab no longer includes this project in its scope of work. As such, it will receive no further updates.
+
+
 # Chart GitHub Development Timelines
 
 This repo consists of a simple utility that pings the GitHub API, fetches all issues for a given repository, then visualizes time estimates for those issues using Google Charts. These visualizations can then be used when planning with team members.
